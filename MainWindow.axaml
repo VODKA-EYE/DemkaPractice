@@ -4,6 +4,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PracticeIK.MainWindow"
-        Title="PracticeIK">
-  Welcome to Avalonia!
+        Title="Список клиентов"
+        Icon="service_logo.ico">
+  <Grid RowDefinitions="Auto,Auto,Auto,*,Auto">
+    
+    <StackPanel Background="#ff9c1a" Orientation="Horizontal">
+      <Image Source="service_logo.png" Height="16"/>
+      <TextBlock Text="ООО “Поломка”"/>
+    </StackPanel>
+    
+    <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto,Auto,Auto,Auto">
+      <Button Content="Назад" Background="#ff9c1a"/>
+      <TextBox Grid.Column="1" Name="SearchTextBox" Watermark="Поиск"/>
+      <ComboBox Grid.Column="2" Name="GenderComboBox" DataContext="{Binding}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Path=Name}"/>
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
+      <ComboBox Grid.Column="3" Name="PaginationComboBox" SelectedIndex="0">
+        <ComboBoxItem>Вывести всех</ComboBoxItem>
+        <ComboBoxItem>Вывести 10</ComboBoxItem>
+        <ComboBoxItem>Вывести 50</ComboBoxItem>
+        <ComboBoxItem>Вывести 100</ComboBoxItem>
+      </ComboBox>
+      <Button Grid.Column="4" Content="Добавить пользователя" Background="#ff9c1a"/>
+      <Button Grid.Column="5" Content="Вперёд" Background="#ff9c1a"/>
+    </Grid>
+    <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+      <TextBlock Grid.Column="0" TextWrapping="Wrap">Изображение</TextBlock>
+      <TextBlock Grid.Column="1" TextWrapping="Wrap">ID</TextBlock>
+      <TextBlock Grid.Column="2" TextWrapping="Wrap">Имя</TextBlock>
+      <TextBlock Grid.Column="3" TextWrapping="Wrap">Фамилия</TextBlock>
+      <TextBlock Grid.Column="4" TextWrapping="Wrap">Отчество</TextBlock>
+      <TextBlock Grid.Column="5" TextWrapping="Wrap">Дата рождения</TextBlock>
+      <TextBlock Grid.Column="6" TextWrapping="Wrap">Телефон</TextBlock>
+      <TextBlock Grid.Column="7" TextWrapping="Wrap">Эл. почта</TextBlock>
+      <TextBlock Grid.Column="8" TextWrapping="Wrap">Дата добавления</TextBlock>
+      <TextBlock Grid.Column="9" TextWrapping="Wrap">Дата последнего посещения</TextBlock>
+      <TextBlock Grid.Column="10" TextWrapping="Wrap">Теги</TextBlock>
+    </Grid>
+    <ListBox Grid.Row="3" Name="ClientsListBox" ItemsSource="{Binding}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+            <Image Source="{Binding Photo}"/>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Id}"/>
+            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Firstname}"/>
+            <TextBlock Grid.Column="3" TextWrapping="Wrap" Text="{Binding Lastname}"/>
+            <TextBlock Grid.Column="4" TextWrapping="Wrap" Text="{Binding Patronymic}"/>
+            <TextBlock Grid.Column="5" TextWrapping="Wrap" Text="{Binding Birthday}"/> 
+            <TextBlock Grid.Column="6" TextWrapping="Wrap" Text="{Binding Phone}"/>
+            <TextBlock Grid.Column="7" TextWrapping="Wrap" Text="{Binding Email}"/>
+            <TextBlock Grid.Column="8" TextWrapping="Wrap" Text="{Binding Registrationdate}"/>
+            <TextBlock Grid.Column="9" TextWrapping="Wrap" Text="{Binding LastVisit}"/>
+            <TextBlock Grid.Column="10" TextWrapping="Wrap" Text="{Binding Tags}"/>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <StackPanel Grid.Row="4" Orientation="Horizontal">
+      <TextBlock>Выведено: </TextBlock>
+      <TextBlock Name="ClientsShownTB">999</TextBlock>
+      <TextBlock> / </TextBlock>
+      <TextBlock Name="ClientsTotalTB">999</TextBlock>
+    </StackPanel>
+  </Grid>
 </Window>

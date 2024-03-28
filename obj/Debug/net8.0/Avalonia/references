@@ -21,6 +21,7 @@ C:\Users\prdb\.nuget\packages\avalonia.themes.fluent\11.0.10\lib\net6.0\Avalonia
 C:\Users\prdb\.nuget\packages\avalonia.themes.simple\11.0.10\lib\net6.0\Avalonia.Themes.Simple.dll
 C:\Users\prdb\.nuget\packages\avalonia.win32\11.0.10\lib\net6.0\Avalonia.Win32.dll
 C:\Users\prdb\.nuget\packages\avalonia.x11\11.0.10\lib\net6.0\Avalonia.X11.dll
+C:\Users\prdb\.nuget\packages\castle.core\5.1.1\lib\net6.0\Castle.Core.dll
 C:\Users\prdb\.nuget\packages\microsoft.entityframeworkcore.tools.dotnet\2.0.3\lib\netcoreapp2.0\dotnet-ef.dll
 C:\Users\prdb\.nuget\packages\harfbuzzsharp\7.3.0\lib\net6.0\HarfBuzzSharp.dll
 C:\Users\prdb\.nuget\packages\microcom.runtime\0.11.0\lib\net5.0\MicroCom.Runtime.dll
@@ -31,6 +32,7 @@ C:\Users\prdb\.nuget\packages\microsoft.codeanalysis.scripting.common\4.9.2\lib\
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\Microsoft.CSharp.dll
 C:\Users\prdb\.nuget\packages\microsoft.entityframeworkcore.abstractions\8.0.3\lib\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\prdb\.nuget\packages\microsoft.entityframeworkcore\8.0.3\lib\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\prdb\.nuget\packages\microsoft.entityframeworkcore.proxies\8.0.3\lib\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\prdb\.nuget\packages\microsoft.entityframeworkcore.relational\8.0.3\lib\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\prdb\.nuget\packages\microsoft.extensions.caching.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\prdb\.nuget\packages\microsoft.extensions.caching.memory\8.0.0\lib\net8.0\Microsoft.Extensions.Caching.Memory.dll
@@ -74,6 +76,7 @@ C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.Contracts.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.Debug.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\prdb\.nuget\packages\system.diagnostics.eventlog\6.0.0\lib\net6.0\System.Diagnostics.EventLog.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.FileVersionInfo.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.Process.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.3\ref\net8.0\System.Diagnostics.StackTrace.dll
