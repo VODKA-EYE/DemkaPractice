@@ -3,6 +3,8 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AddClient.axaml" value="PracticeIK.csproj" />
+        <entry key="App.axaml" value="PracticeIK.csproj" />
         <entry key="MainWindow.axaml" value="PracticeIK.csproj" />
       </map>
     </option>

@@ -1,0 +1,50 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="PracticeIK.AddClient"
+        Title="Добавление клиента">
+  <Grid ColumnDefinitions="16,*,16" RowDefinitions="Auto,*" DataContext="{Binding}" Name="WindowGrid">
+    <StackPanel Grid.ColumnSpan="3" Background="#ff9c1a" Orientation="Horizontal">
+      <Image Source="service_logo.png" Height="16" Name="image"/>
+      <TextBlock Text="ООО “Поломка”"/>
+    </StackPanel>
+    <Grid Grid.Row="1" Grid.Column="1"  ColumnDefinitions="*,*" RowDefinitions="*,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+      <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding Path=Photo}" Margin="4"/>
+      <TextBox Grid.Row="2" Name="FirstNameTB" Margin="4" Watermark="Фамилия" Text="{Binding Path=Firstname}"/>
+      <TextBox Grid.Row="3" Name="LastNameTB" Margin="4" Watermark="Имя" Text="{Binding Path=Lastname}"/>
+      <TextBox Grid.Row="4" Name="PatronymicTB" Margin="4" Watermark="Отчество" Text="{Binding Path=Patronymic}"/>
+      <TextBox Grid.Row="5" Name="EMailTB" Margin="4" Watermark="Почта" Text="{Binding Path=Email}"/>
+      <TextBox Grid.Row="6" Name="PhoneTB" Margin="4" Watermark="Телефон" Text="{Binding Path=Phone}"/>
+      <Grid Grid.Row="7" ColumnDefinitions="*,*">
+        <ComboBox  Name="GenderComboBox" Margin="4" SelectedIndex="{Binding Path=Gendercode}" DataContext="{Binding}">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Path=Name}"/>
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Grid.Column="1" Margin="4" Text="Тэги:"/>
+        <ListBox Grid.Column="1" Name="TagsListBox" Margin="4,24" SelectedIndex="{Binding Path=Tags}" DataContext="{Binding }" SelectionMode="Multiple">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Path=Title}" Foreground="{Binding Path=Color}"/>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Margin="4" Content="Сбросить выбор тэга"/>
+      </Grid>
+      
+      <TextBlock Grid.Row="9" Name="ErrorTB"/>
+      
+      <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="4">
+        <TextBlock Text="ID: "/>
+        <TextBlock Text="{Binding Path=Id}"/>
+      </StackPanel>
+      <Button Grid.Column="1" Content="Выбрать фотографию" Click="SelectImage"/>
+      <Calendar Grid.Column="1" Grid.Row="2" Grid.RowSpan="7" Name="BDayCalendar"/>
+      <Button Grid.Column="1" Grid.Row="9" Content="Сохранить" VerticalAlignment="Top" Margin="5" Click="SaveClient"/>
+    </Grid>
+  </Grid>
+</Window>

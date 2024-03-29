@@ -2,10 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
         x:Class="PracticeIK.MainWindow"
         Title="Список клиентов"
-        Icon="service_logo.ico">
+        Icon="service_logo.ico"
+        MinWidth="800"
+        MinHeight="256">
   <Grid RowDefinitions="Auto,Auto,Auto,*,Auto">
     
     <StackPanel Background="#ff9c1a" Orientation="Horizontal">
@@ -13,8 +15,8 @@
       <TextBlock Text="ООО “Поломка”"/>
     </StackPanel>
     
-    <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto,Auto,Auto,Auto">
-      <Button Content="Назад" Background="#ff9c1a"/>
+    <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto,Auto,Auto,Auto,Auto">
+      <Button Content="Назад" Click="PreviousPageClick"/>
       <TextBox Grid.Column="1" Name="SearchTextBox" Watermark="Поиск"/>
       <ComboBox Grid.Column="2" Name="GenderComboBox" DataContext="{Binding}">
         <ComboBox.ItemTemplate>
@@ -29,12 +31,17 @@
         <ComboBoxItem>Вывести 50</ComboBoxItem>
         <ComboBoxItem>Вывести 100</ComboBoxItem>
       </ComboBox>
-      <Button Grid.Column="4" Content="Добавить пользователя" Background="#ff9c1a"/>
-      <Button Grid.Column="5" Content="Вперёд" Background="#ff9c1a"/>
+      <StackPanel Grid.Column="4" Orientation="Horizontal" Margin="4">
+        <CheckBox Name="BDThisMonthCB"/>
+        <TextBlock VerticalAlignment="Center"> ДР в этом месяце?</TextBlock>
+      </StackPanel>
+      <Button Grid.Column="5" Content="Добавить пользователя" Click="AddClientButtonClick"/>
+      <Button Grid.Column="6" Content="Вперёд" Click="NextPageClick"/>
     </Grid>
-    <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*">
-      <TextBlock Grid.Column="0" TextWrapping="Wrap">Изображение</TextBlock>
-      <TextBlock Grid.Column="1" TextWrapping="Wrap">ID</TextBlock>
+    
+    <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
+      <TextBlock Grid.Column="0" TextWrapping="Wrap" Margin="12,0">Изображение</TextBlock>
+      <TextBlock Grid.Column="1" TextWrapping="Wrap" Margin="12,0"> ID </TextBlock>
       <TextBlock Grid.Column="2" TextWrapping="Wrap">Имя</TextBlock>
       <TextBlock Grid.Column="3" TextWrapping="Wrap">Фамилия</TextBlock>
       <TextBlock Grid.Column="4" TextWrapping="Wrap">Отчество</TextBlock>
@@ -43,32 +50,42 @@
       <TextBlock Grid.Column="7" TextWrapping="Wrap">Эл. почта</TextBlock>
       <TextBlock Grid.Column="8" TextWrapping="Wrap">Дата добавления</TextBlock>
       <TextBlock Grid.Column="9" TextWrapping="Wrap">Дата последнего посещения</TextBlock>
-      <TextBlock Grid.Column="10" TextWrapping="Wrap">Теги</TextBlock>
+      <TextBlock Grid.Column="10" TextWrapping="Wrap">Количество посещений</TextBlock>
+      <TextBlock Grid.Column="11" TextWrapping="Wrap">Теги</TextBlock>
     </Grid>
-    <ListBox Grid.Row="3" Name="ClientsListBox" ItemsSource="{Binding}">
+    <ListBox Grid.Row="3" Name="ClientsListBox" ItemsSource="{Binding}" Background="White" SelectionChanged="EditClientClick">
       <ListBox.ItemTemplate>
         <DataTemplate>
-          <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+          <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
             <Image Source="{Binding Photo}"/>
-            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Id}"/>
-            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Firstname}"/>
-            <TextBlock Grid.Column="3" TextWrapping="Wrap" Text="{Binding Lastname}"/>
-            <TextBlock Grid.Column="4" TextWrapping="Wrap" Text="{Binding Patronymic}"/>
-            <TextBlock Grid.Column="5" TextWrapping="Wrap" Text="{Binding Birthday}"/> 
-            <TextBlock Grid.Column="6" TextWrapping="Wrap" Text="{Binding Phone}"/>
-            <TextBlock Grid.Column="7" TextWrapping="Wrap" Text="{Binding Email}"/>
-            <TextBlock Grid.Column="8" TextWrapping="Wrap" Text="{Binding Registrationdate}"/>
-            <TextBlock Grid.Column="9" TextWrapping="Wrap" Text="{Binding LastVisit}"/>
-            <TextBlock Grid.Column="10" TextWrapping="Wrap" Text="{Binding Tags}"/>
+            <TextBlock Grid.Column="1" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Id}"/>
+            <TextBlock Grid.Column="2" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Firstname}"/>
+            <TextBlock Grid.Column="3" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Lastname}"/>
+            <TextBlock Grid.Column="4" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Patronymic}"/>
+            <TextBlock Grid.Column="5" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Birthday}"/> 
+            <TextBlock Grid.Column="6" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Phone}"/>
+            <TextBlock Grid.Column="7" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Email}"/>
+            <TextBlock Grid.Column="8" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Registrationdate}"/>
+            <TextBlock Grid.Column="9" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Lastvisit}"/>
+            <TextBlock Grid.Column="10" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Amountofvisits}"/>
+            <ItemsControl Grid.Column="11" Margin="2" ItemsSource="{Binding Path=Tags}" Background="White">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding Path=Title}" Foreground="{Binding Path=Color}"/>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
           </Grid>
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
     <StackPanel Grid.Row="4" Orientation="Horizontal">
-      <TextBlock>Выведено: </TextBlock>
-      <TextBlock Name="ClientsShownTB">999</TextBlock>
-      <TextBlock> / </TextBlock>
-      <TextBlock Name="ClientsTotalTB">999</TextBlock>
+      <TextBlock Margin="4">Выведено: </TextBlock>
+      <TextBlock Margin="4" Name="ClientsShownTB">999</TextBlock>
+      <TextBlock Margin="4"> / </TextBlock>
+      <TextBlock Margin="4" Name="ClientsTotalTB">999</TextBlock>
+      <TextBlock Margin="4"> Страница № </TextBlock>
+      <TextBlock Margin="4" Name="PageNumberTB">1</TextBlock>
     </StackPanel>
   </Grid>
 </Window>

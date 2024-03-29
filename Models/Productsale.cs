@@ -15,5 +15,7 @@ public partial class Productsale
 
     public int? Clientserviceid { get; set; }
 
+    public virtual Clientservice? Clientservice { get; set; }
+
     public virtual Product Product { get; set; } = null!;
 }

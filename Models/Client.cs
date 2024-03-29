@@ -26,6 +26,10 @@ public partial class Client
 
   public string? Photopath { get; set; }
 
+  public int Amountofvisits { get; set; }
+
+  public DateOnly? Lastvisit { get; set; }
+
   public virtual ICollection<Clientservice> Clientservices { get; set; } = new List<Clientservice>();
 
   public virtual Gender GendercodeNavigation { get; set; } = null!;

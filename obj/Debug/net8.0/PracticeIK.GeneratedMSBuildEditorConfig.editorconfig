@@ -25,6 +25,9 @@ build_property.ProjectDir = C:\Users\prdb\RiderProjects\PracticeIK\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
+[C:/Users/prdb/RiderProjects/PracticeIK/AddClient.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/prdb/RiderProjects/PracticeIK/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

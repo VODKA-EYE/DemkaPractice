@@ -19,5 +19,7 @@ public partial class Clientservice
 
     public virtual ICollection<Documentbyservice> Documentbyservices { get; set; } = new List<Documentbyservice>();
 
+    public virtual ICollection<Productsale> Productsales { get; set; } = new List<Productsale>();
+
     public virtual Service Service { get; set; } = null!;
 }

@@ -51,6 +51,9 @@ public partial class User907Context : DbContext
             entity.ToTable("client", "Practice");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Amountofvisits)
+                .HasDefaultValue(0)
+                .HasColumnName("amountofvisits");
             entity.Property(e => e.Birthday).HasColumnName("birthday");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
@@ -64,6 +67,7 @@ public partial class User907Context : DbContext
             entity.Property(e => e.Lastname)
                 .HasMaxLength(50)
                 .HasColumnName("lastname");
+            entity.Property(e => e.Lastvisit).HasColumnName("lastvisit");
             entity.Property(e => e.Patronymic)
                 .HasMaxLength(50)
                 .HasColumnName("patronymic");
@@ -258,6 +262,10 @@ public partial class User907Context : DbContext
             entity.Property(e => e.Productid).HasColumnName("productid");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.Saledate).HasColumnName("saledate");
+
+            entity.HasOne(d => d.Clientservice).WithMany(p => p.Productsales)
+                .HasForeignKey(d => d.Clientserviceid)
+                .HasConstraintName("fk_productsale_clientservice");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Productsales)
                 .HasForeignKey(d => d.Productid)
