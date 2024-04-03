@@ -57,7 +57,7 @@
       <ListBox.ItemTemplate>
         <DataTemplate>
           <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
-            <Image Source="{Binding Photo}"/>
+            <Image Margin="2" Source="{Binding Photo}"/>
             <TextBlock Grid.Column="1" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Id}"/>
             <TextBlock Grid.Column="2" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Firstname}"/>
             <TextBlock Grid.Column="3" Margin="2" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Lastname}"/>

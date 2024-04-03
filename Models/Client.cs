@@ -47,7 +47,7 @@ public partial class Client
         {
           if (Photopath == "")
           {
-            image = new Bitmap(@"service_logo.exe");
+            image = new Bitmap(@"service_logo.png");
             return image;
           }
           image = new Bitmap(Photopath);
@@ -55,7 +55,7 @@ public partial class Client
         }
         catch (Exception e)
         {
-          image = new Bitmap(@"service_logo.exe");
+          image = new Bitmap(@"service_logo.png");
           return image;
         }
       }

@@ -9,20 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="455d70ef-a8e2-4666-bf82-9ea814318185" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PracticeIK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PracticeIK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PracticeIK/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/PracticeIK/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PracticeIK/FileContentIndex/fa2faff5-ae60-4d54-9319-8819f5620e3b.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PracticeIK/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/PracticeIK/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PracticeIK/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/PracticeIK/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/practiceik.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/practiceik.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/practiceik.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/practiceik.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AddClient.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AddClient.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddClient.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AddClient.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/PracticeIK.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
@@ -34,8 +27,6 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/PracticeIK.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/PracticeIK.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/PracticeIK.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/PracticeIK.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.PracticeIK.executor": "Debug",
+    ".NET Project.PracticeIK.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "node.js.detected.package.eslint": "true",
@@ -106,7 +97,7 @@
       <workItem from="1711695759507" duration="5399000" />
       <workItem from="1711701486113" duration="924000" />
       <workItem from="1711703090694" duration="16405000" />
-      <workItem from="1712130450768" duration="15868000" />
+      <workItem from="1712130450768" duration="17751000" />
     </task>
     <servers />
   </component>

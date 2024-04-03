@@ -48,7 +48,7 @@
         <TextBlock Text="ID: "/>
         <TextBlock Text="{Binding Path=Id}"/>
       </StackPanel>
-      <TextBlock Grid.Column="1" Grid.Row="4" Text="День рождения:"/>
+      <TextBlock Grid.Column="1" Grid.Row="5" Text="День рождения:"/>
       <Calendar Grid.Column="1" Grid.Row="4" Grid.RowSpan="6" Name="BDayCalendar"/>
     </Grid>
   </Grid>

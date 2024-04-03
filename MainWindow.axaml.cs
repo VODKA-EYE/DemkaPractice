@@ -31,23 +31,23 @@ public partial class MainWindow : Window
   {
     List<Client> clients = dbcontext.Clients.ToList();
     
-    // Подсчёт общего количества клиентов
+    // Overall amount of clients
     clientsAmount = clients.Count();
     ClientsTotalTB.Text = clientsAmount.ToString();
     
-    // Сортировка по гендеру
+    // Sort by genders
     if (GenderComboBox.SelectedIndex != 0)
     {
       clients = clients.Where(c => c.Gendercode == GenderComboBox.SelectedIndex).ToList();
     }
 
-    // Сортировка подням рождениям в этом месяце
+    // Sort by this month's bdays
     if (BDThisMonthCB.IsChecked.Value)
     {
       clients = clients.Where(c => c.Birthday.Value.Month == DateTime.Now.Month).ToList();
     }
 
-    // Поисковая строка
+    // Search bar
     string searchString = SearchTextBox.Text ?? "";
     searchString = searchString.ToLower();
     string[] searchStringElements = searchString.Split(' ');
@@ -66,11 +66,10 @@ public partial class MainWindow : Window
       }
     }
     
-    // Сортировка по фамилии, последнему посещению и количеству
-    //clients = clients.OrderBy(c => c.Lastname).ThenBy(c => c.Lastvisit).ThenBy(c => c.Amountofvisits).ToList();
+    // clients = clients.OrderBy(c => c.Lastname).ThenBy(c => c.Lastvisit).ThenBy(c => c.Amountofvisits).ToList();
     clients = clients.OrderBy(c => c.Id).ToList();
     
-    // Пагинация клиентов
+    // Client pagination
     switch (PaginationComboBox.SelectedIndex)
     {
       case 0:
