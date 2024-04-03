@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using PracticeIK.Context;
 using PracticeIK.Models;
@@ -17,6 +18,7 @@ public partial class MainWindow : Window
   public MainWindow()
   {
     InitializeComponent();
+    SearchTextBox.AddHandler(KeyUpEvent, OnSearchBoxTextChanging, RoutingStrategies.Tunnel);
     GenderComboBox.SelectionChanged += ComboBoxSelectionChanged;
     PaginationComboBox.SelectionChanged += ComboBoxSelectionChanged;
     BDThisMonthCB.Click += CheckBoxSelectionChanged;
@@ -147,6 +149,7 @@ public partial class MainWindow : Window
   {
     AddClient addClient = new();
     await addClient.ShowDialog(this);
+    dbcontext = new();
     LoadClients();
   }
 
@@ -161,6 +164,7 @@ public partial class MainWindow : Window
       addClient.ShowDialog(this);
       addClient.Closed += (o, arg) =>
       {
+        dbcontext = new();
         LoadClients();
       };
     }
@@ -173,6 +177,11 @@ public partial class MainWindow : Window
   }
 
   private void CheckBoxSelectionChanged(object sender, RoutedEventArgs e)
+  {
+    LoadClients();
+  }
+
+  private async void OnSearchBoxTextChanging(object? sender, KeyEventArgs e)
   {
     LoadClients();
   }

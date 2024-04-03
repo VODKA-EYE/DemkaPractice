@@ -45,6 +45,11 @@ public partial class Client
       {
         try
         {
+          if (Photopath == "")
+          {
+            image = new Bitmap(@"service_logo.exe");
+            return image;
+          }
           image = new Bitmap(Photopath);
           return image;
         }
