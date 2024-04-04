@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Avalonia.Media.Imaging;
 
 namespace PracticeIK.Models;
@@ -25,10 +26,6 @@ public partial class Client
   public int Gendercode { get; set; }
 
   public string? Photopath { get; set; }
-
-  public int Amountofvisits { get; set; }
-
-  public DateOnly? Lastvisit { get; set; }
 
   public virtual ICollection<Clientservice> Clientservices { get; set; } = new List<Clientservice>();
 
@@ -65,4 +62,20 @@ public partial class Client
       }
     }
   }
+
+  public DateOnly LastVisit
+  {
+    get
+    {
+      Clientservice lastService = Clientservices.Where(s => s.Clientid == Id).OrderByDescending(s => s.Starttime).First();
+      if (lastService != null)
+      {
+        return lastService.Starttime;
+      }
+
+      DateOnly date = new DateOnly(1970,1,1);
+      return date;
+    }
+  }
+  
 }

@@ -51,9 +51,6 @@ public partial class User907Context : DbContext
             entity.ToTable("client", "Practice");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Amountofvisits)
-                .HasDefaultValue(0)
-                .HasColumnName("amountofvisits");
             entity.Property(e => e.Birthday).HasColumnName("birthday");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
@@ -67,7 +64,6 @@ public partial class User907Context : DbContext
             entity.Property(e => e.Lastname)
                 .HasMaxLength(50)
                 .HasColumnName("lastname");
-            entity.Property(e => e.Lastvisit).HasColumnName("lastvisit");
             entity.Property(e => e.Patronymic)
                 .HasMaxLength(50)
                 .HasColumnName("patronymic");

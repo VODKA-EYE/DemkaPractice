@@ -56,19 +56,19 @@ public partial class AddClient : Window
 
       ClearErrorBackground();
       // Content check
-      if (FirstNameTB.Text == null)
+      if (FirstNameTB.Text == null || !FirstNameTB.Text.All(Char.IsLetter))
       {
         FirstNameTB.Background = Brushes.Red;
         noErrors = false;
       }
 
-      if (LastNameTB.Text == null)
+      if (LastNameTB.Text == null || !LastNameTB.Text.All(Char.IsLetter))
       {
         LastNameTB.Background = Brushes.Red;
         noErrors = false;
       }
 
-      if (PatronymicTB.Text == null)
+      if (PatronymicTB.Text == null || !PatronymicTB.Text.All(Char.IsLetter))
       {
         PatronymicTB.Background = Brushes.Red;
         noErrors = false;
@@ -81,17 +81,17 @@ public partial class AddClient : Window
         noErrors = false;
       }
 
-      string phoneSymbols = "1234567890()+- ";
-      bool phoneCorrect = true;
-      foreach (var symbol in phoneSymbols)
-      {
-        if (!phoneSymbols.Contains(symbol.ToString()))
-        {
-          phoneCorrect = false;
-        }
-      }
+      // string phoneSymbols = "1234567890()+- ";
+      // bool phoneCorrect = true;
+      // foreach (var symbol in phoneSymbols)
+      // {
+      //   if (!phoneSymbols.Contains(symbol.ToString()))
+      //   {
+      //     phoneCorrect = false;
+      //   }
+      // }
       
-      if (!phoneCorrect || PhoneTB.Text == null)
+      if (!PhoneTB.Text.All(t => "1234567890()+- ".Contains(t)) || PhoneTB.Text == null)
       {
         PhoneTB.Background = Brushes.Red;
         noErrors = false;
@@ -103,7 +103,7 @@ public partial class AddClient : Window
         noErrors = false;
       }
 
-      if (BDayCalendar.SelectedDate == null)
+      if (BDayCalendar.SelectedDate == null || BDayCalendar.SelectedDate > DateTime.Now)
       {
         BDayCalendar.Background = Brushes.Red;
         noErrors = false;

@@ -13,14 +13,18 @@ public partial class MainWindow : Window
 {
   private User907Context dbcontext = new();
   private int page = 0;
+  private int maxPage = 0;
+  private int pageAmount = 0;
   private int clientsAmount;
 
   public MainWindow()
   {
     InitializeComponent();
     SearchTextBox.AddHandler(KeyUpEvent, OnSearchBoxTextChanging, RoutingStrategies.Tunnel);
+    
+    PaginationComboBox.SelectionChanged += PaginationComboBoxSelectionChanged;
+    AdditionalFiltersComboBox.SelectionChanged += ComboBoxSelectionChanged;
     GenderComboBox.SelectionChanged += ComboBoxSelectionChanged;
-    PaginationComboBox.SelectionChanged += ComboBoxSelectionChanged;
     BDThisMonthCB.Click += CheckBoxSelectionChanged;
     
     LoadGenders();
@@ -66,25 +70,38 @@ public partial class MainWindow : Window
       }
     }
     
-    // clients = clients.OrderBy(c => c.Lastname).ThenBy(c => c.Lastvisit).ThenBy(c => c.Amountofvisits).ToList();
-    clients = clients.OrderBy(c => c.Id).ToList();
-    
-    // Client pagination
-    switch (PaginationComboBox.SelectedIndex)
+    // Filters
+    switch (AdditionalFiltersComboBox.SelectedIndex)
     {
       case 0:
+        clients = clients.OrderBy(c => c.Id).ToList();
         break;
       case 1:
-        clients = clients.Skip(page * 10).Take(10).ToList();
+        clients = clients.OrderBy(c => c.Lastname).ToList();
         break;
       case 2:
-        clients = clients.Skip(page * 50).Take(50).ToList();
+        clients = clients.OrderByDescending(c => c.Clientservices.Count).ToList();
         break;
       case 3:
-        clients = clients.Skip(page * 100).Take(100).ToList();
+        clients = clients.OrderByDescending(c => c.LastVisit).ToList();
         break;
     }
-    ClientsShownTB.Text = clients.Count.ToString();
+    
+    
+    // Client pagination
+    if (pageAmount != 0)
+    {
+      clients = clients.Skip(page * pageAmount).Take(pageAmount).ToList();
+      ClientsShownFromTB.Text = (page * pageAmount).ToString();
+      ClientsShownToTB.Text = (page * pageAmount + clients.Count).ToString();
+    }
+    else
+    {
+      ClientsShownFromTB.Text = "0";
+      ClientsShownToTB.Text = clients.Count.ToString();
+    }
+    
+    
     ClientsListBox.ItemsSource = clients;
   }
 
@@ -102,31 +119,7 @@ public partial class MainWindow : Window
 
   private void NextPageClick(object? sender, RoutedEventArgs e)
   {
-    switch (PaginationComboBox.SelectedIndex)
-    {
-      case 0:
-        break;
-      case 1:
-        if (clientsAmount / 10 != page+1)
-        {
-          NextPage();
-        }
-        break;
-      case 2:
-        if (clientsAmount / 50 != page+1)
-        {
-          NextPage();
-        }
-        break;
-      case 3:
-        if (clientsAmount / 100 != page+1)
-        {
-          NextPage();
-        }
-        break;
-    }
-
-    void NextPage()
+    if (maxPage != page + 1 & PaginationComboBox.SelectedIndex != 0)
     {
       page++;
       PageNumberTB.Text = (page + 1).ToString();
@@ -172,16 +165,61 @@ public partial class MainWindow : Window
   
   private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
   {
-    LoadClients();
+    RefreshData();
+  }
+  
+  private void PaginationComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+  {
+    switch (PaginationComboBox.SelectedIndex)
+    {
+      case 0:
+        pageAmount = 0;
+        PageNumberMaxTB.Text = "0";
+        break;
+      case 1:
+        MaxPageSetup(10);
+        break;
+      case 2:
+        MaxPageSetup(50);
+        break;
+      case 3:
+        MaxPageSetup(100);
+        break;
+    }
+    RefreshData();
   }
 
+  private void MaxPageSetup(int pageAmount)
+  {
+    int remainder = clientsAmount % pageAmount;
+    if (remainder != 0)
+    {
+      this.pageAmount = pageAmount;
+      maxPage = clientsAmount / pageAmount + 1;
+      PageNumberMaxTB.Text = maxPage.ToString();
+    }
+    else
+    {
+      this.pageAmount = pageAmount;
+      maxPage = clientsAmount / pageAmount;
+      PageNumberMaxTB.Text = maxPage.ToString();
+    }
+  }
+  
   private void CheckBoxSelectionChanged(object sender, RoutedEventArgs e)
   {
-    LoadClients();
+    RefreshData();
   }
 
   private async void OnSearchBoxTextChanging(object? sender, KeyEventArgs e)
   {
+    RefreshData();
+  }
+
+  private void RefreshData()
+  {
     LoadClients();
+    page = 0;
+    PageNumberTB.Text = (page + 1).ToString();
   }
 }

@@ -9,7 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="455d70ef-a8e2-4666-bf82-9ea814318185" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PracticeIK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PracticeIK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddClient.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AddClient.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddClient.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AddClient.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Context/User907Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context/User907Context.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Client.cs" afterDir="false" />
@@ -27,11 +28,16 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/PracticeIK.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/PracticeIK.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/PracticeIK.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/PracticeIK.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Linq/src/System/Linq/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/426114be9baf028f36d93caa336d136892572f2cf262d679a6f3e69c2f82b0/InpcPropertyAccessorPlugin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -97,7 +103,8 @@
       <workItem from="1711695759507" duration="5399000" />
       <workItem from="1711701486113" duration="924000" />
       <workItem from="1711703090694" duration="16405000" />
-      <workItem from="1712130450768" duration="17751000" />
+      <workItem from="1712130450768" duration="22137000" />
+      <workItem from="1712225720045" duration="10947000" />
     </task>
     <servers />
   </component>
