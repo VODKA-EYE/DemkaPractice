@@ -15,6 +15,7 @@ public partial class ViewVisits : Window
 
   public ViewVisits()
   {
+    // For sdk preview
     InitializeComponent();
     LoadVisits();
   }

@@ -101,7 +101,7 @@ public partial class MainWindow : Window
       ClientsShownToTB.Text = clients.Count.ToString();
     }
     
-    
+    // Load filtered clients into listbox
     ClientsListBox.ItemsSource = clients;
   }
 
@@ -206,6 +206,13 @@ public partial class MainWindow : Window
     }
   }
   
+  private async void ViewVisits(object? sender, RoutedEventArgs e)
+  {
+    var selectedClient = (sender as Button).Tag;
+    ViewVisits viewVisits = new(Convert.ToInt32(selectedClient));
+    await viewVisits.ShowDialog(this);
+  }
+  
   private void CheckBoxSelectionChanged(object sender, RoutedEventArgs e)
   {
     RefreshData();
@@ -222,11 +229,5 @@ public partial class MainWindow : Window
     page = 0;
     PageNumberTB.Text = (page + 1).ToString();
   }
-
-  private async void ViewVisits(object? sender, RoutedEventArgs e)
-  {
-    var selectedClient = (sender as Button).Tag;
-    ViewVisits viewVisits = new(Convert.ToInt32(selectedClient));
-    await viewVisits.ShowDialog(this);
-  }
+  
 }
