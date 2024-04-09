@@ -67,14 +67,29 @@ public partial class Client
   {
     get
     {
-      Clientservice lastService = Clientservices.Where(s => s.Clientid == Id).OrderByDescending(s => s.Starttime).First();
-      if (lastService != null)
+      try
       {
+        Clientservice lastService = Clientservices.Where(s => s.Clientid == Id).OrderByDescending(s => s.Starttime).First();
         return lastService.Starttime;
       }
+      catch
+      {
+        DateOnly date = new DateOnly();
+        return date;
+      }
+    }
+  }
 
-      DateOnly date = new DateOnly(1970,1,1);
-      return date;
+  public string LastVisitString
+  {
+    get
+    {
+      if (LastVisit.ToString() != "01.01.0001")
+      {
+        return LastVisit.ToString();
+      }
+
+      return "";
     }
   }
   

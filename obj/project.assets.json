@@ -8949,11 +8949,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prdb\\RiderProjects\\PracticeIK\\PracticeIK.csproj",
+      "projectUniqueName": "C:\\Users\\prdb\\RiderProjects\\DemkaPractice\\PracticeIK.csproj",
       "projectName": "PracticeIK",
-      "projectPath": "C:\\Users\\prdb\\RiderProjects\\PracticeIK\\PracticeIK.csproj",
+      "projectPath": "C:\\Users\\prdb\\RiderProjects\\DemkaPractice\\PracticeIK.csproj",
       "packagesPath": "C:\\Users\\prdb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prdb\\RiderProjects\\PracticeIK\\obj\\",
+      "outputPath": "C:\\Users\\prdb\\RiderProjects\\DemkaPractice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\prdb\\AppData\\Roaming\\NuGet\\NuGet.Config",

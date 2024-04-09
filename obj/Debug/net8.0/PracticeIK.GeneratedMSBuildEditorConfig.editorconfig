@@ -21,15 +21,18 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PracticeIK
-build_property.ProjectDir = C:\Users\prdb\RiderProjects\PracticeIK\
+build_property.ProjectDir = C:\Users\prdb\RiderProjects\DemkaPractice\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/prdb/RiderProjects/PracticeIK/AddClient.axaml]
+[C:/Users/prdb/RiderProjects/DemkaPractice/AddClient.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/prdb/RiderProjects/PracticeIK/App.axaml]
+[C:/Users/prdb/RiderProjects/DemkaPractice/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/prdb/RiderProjects/PracticeIK/MainWindow.axaml]
+[C:/Users/prdb/RiderProjects/DemkaPractice/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/prdb/RiderProjects/DemkaPractice/ViewVisits.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

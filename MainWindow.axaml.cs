@@ -222,4 +222,11 @@ public partial class MainWindow : Window
     page = 0;
     PageNumberTB.Text = (page + 1).ToString();
   }
+
+  private async void ViewVisits(object? sender, RoutedEventArgs e)
+  {
+    var selectedClient = (sender as Button).Tag;
+    ViewVisits viewVisits = new(Convert.ToInt32(selectedClient));
+    await viewVisits.ShowDialog(this);
+  }
 }

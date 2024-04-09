@@ -1,0 +1,33 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="220" d:DesignHeight="100"
+        x:Class="PracticeIK.ViewVisits"
+        Title="Список посещений"
+        Icon="service_logo.ico"
+        MinWidth="220" MinHeight="96">
+  <Grid RowDefinitions="Auto,*">
+    <!-- Useless top bar -->
+    <StackPanel Background="#ff9c1a" Orientation="Horizontal">
+      <Image Source="service_logo.png" Height="16"/>
+      <TextBlock Text="ООО “Поломка”"/>
+    </StackPanel>
+    
+    <!-- ListBox -->
+    <ListBox Grid.Row="1">
+      <ListBox Name="VisitsListBox" DataContext="{Binding }">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Grid RowDefinitions="Auto,Auto">
+              <TextBlock Text="{Binding Path=Service.Title}"/>
+              <TextBlock Grid.Row="1" Text="{Binding Path=Starttime}"/>
+            </Grid>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </ListBox>
+    <TextBlock Name="NothingLoadedTB" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  </Grid>
+  
+</Window>
