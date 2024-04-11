@@ -201,10 +201,16 @@ public partial class AddClient : Window
   
   private void DeleteClient(object sender, RoutedEventArgs e)
   {
-    client.Tags = new List<Tag>();
-    dbcontext.Clients.Remove(client);
-    dbcontext.SaveChanges();
-    Close();
+    Clientservice visit = dbcontext.Clientservices.Where(cs => cs.Clientid == client.Id).FirstOrDefault();
+    if (visit is null)
+    {
+      client.Tags = new List<Tag>();
+      dbcontext.Clients.Remove(client);
+      dbcontext.SaveChanges();
+      Close();
+      return;
+    }
+    ErrorTB.Text = "У клиента есть посещения, удалить невозможно!";
   }
 
   private void DeselectImage(object sender, RoutedEventArgs e)

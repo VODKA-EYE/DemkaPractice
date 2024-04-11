@@ -16,6 +16,7 @@ public partial class MainWindow : Window
   private int maxPage = 0;
   private int pageAmount = 0;
   private int clientsAmount;
+  private int clientsAmountAfterFilters;
 
   public MainWindow()
   {
@@ -86,12 +87,32 @@ public partial class MainWindow : Window
         clients = clients.OrderByDescending(c => c.LastVisit).ToList();
         break;
     }
+
+    clientsAmountAfterFilters = clients.Count();
+    
+    switch (PaginationComboBox.SelectedIndex)
+    {
+      case 0:
+        pageAmount = 0;
+        PageNumberMaxTB.Text = "1";
+        break;
+      case 1:
+        MaxPageSetup(10);
+        break;
+      case 2:
+        MaxPageSetup(50);
+        break;
+      case 3:
+        MaxPageSetup(100);
+        break;
+    }
     
     
     // Client pagination
     if (pageAmount != 0)
     {
       clients = clients.Skip(page * pageAmount).Take(pageAmount).ToList();
+      
       ClientsShownFromTB.Text = (page * pageAmount).ToString();
       ClientsShownToTB.Text = (page * pageAmount + clients.Count).ToString();
     }
@@ -170,38 +191,22 @@ public partial class MainWindow : Window
   
   private void PaginationComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
   {
-    switch (PaginationComboBox.SelectedIndex)
-    {
-      case 0:
-        pageAmount = 0;
-        PageNumberMaxTB.Text = "0";
-        break;
-      case 1:
-        MaxPageSetup(10);
-        break;
-      case 2:
-        MaxPageSetup(50);
-        break;
-      case 3:
-        MaxPageSetup(100);
-        break;
-    }
     RefreshData();
   }
 
   private void MaxPageSetup(int pageAmount)
   {
-    int remainder = clientsAmount % pageAmount;
+    int remainder = clientsAmountAfterFilters % pageAmount;
     if (remainder != 0)
     {
       this.pageAmount = pageAmount;
-      maxPage = clientsAmount / pageAmount + 1;
+      maxPage = clientsAmountAfterFilters / pageAmount + 1;
       PageNumberMaxTB.Text = maxPage.ToString();
     }
     else
     {
       this.pageAmount = pageAmount;
-      maxPage = clientsAmount / pageAmount;
+      maxPage = clientsAmountAfterFilters / pageAmount;
       PageNumberMaxTB.Text = maxPage.ToString();
     }
   }
@@ -225,9 +230,9 @@ public partial class MainWindow : Window
 
   private void RefreshData()
   {
-    LoadClients();
     page = 0;
     PageNumberTB.Text = (page + 1).ToString();
+    LoadClients();
   }
   
 }
