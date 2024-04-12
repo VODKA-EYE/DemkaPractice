@@ -6,14 +6,11 @@ using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
-using Microsoft.EntityFrameworkCore;
 using PracticeIK.Context;
 using PracticeIK.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PracticeIK;
 
@@ -80,16 +77,6 @@ public partial class AddClient : Window
         EMailTB.Background = Brushes.Red;
         noErrors = false;
       }
-
-      // string phoneSymbols = "1234567890()+- ";
-      // bool phoneCorrect = true;
-      // foreach (var symbol in phoneSymbols)
-      // {
-      //   if (!phoneSymbols.Contains(symbol.ToString()))
-      //   {
-      //     phoneCorrect = false;
-      //   }
-      // }
       
       if (!PhoneTB.Text.All(t => "1234567890()+- ".Contains(t)) || PhoneTB.Text == null)
       {
@@ -130,7 +117,6 @@ public partial class AddClient : Window
       client.Phone = PhoneTB.Text;
       client.Gendercode = GenderComboBox.SelectedIndex;
       client.Birthday = DateOnly.FromDateTime(BDayCalendar.SelectedDate.Value);
-      client.Registrationdate = DateOnly.FromDateTime(DateTime.Now);
       client.Tags = tags;
       
       if (editClient)
@@ -140,6 +126,7 @@ public partial class AddClient : Window
       }
       else
       {
+        client.Registrationdate = DateOnly.FromDateTime(DateTime.Now);
         dbcontext.Clients.Add(client);
         dbcontext.SaveChanges();
       }

@@ -99,6 +99,9 @@
       <StackPanel Grid.Row="4"  Orientation="Horizontal">
         <TextBlock Margin="4">Общее количество: </TextBlock>
         <TextBlock Margin="4" Name="ClientsTotalTB">999</TextBlock>
+        <TextBlock Margin="4">Отфильтрованное количество: </TextBlock>
+        <TextBlock Margin="4" Name="ClientsTotalFilteredTB">999</TextBlock>
+        
         <TextBlock Margin="4">Выведенный диапозон: </TextBlock>
         <TextBlock Margin="4" Name="ClientsShownFromTB">999</TextBlock>
         <TextBlock Margin="4"> / </TextBlock>

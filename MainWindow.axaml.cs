@@ -89,6 +89,7 @@ public partial class MainWindow : Window
     }
 
     clientsAmountAfterFilters = clients.Count();
+    ClientsTotalFilteredTB.Text = clientsAmountAfterFilters.ToString();
     
     switch (PaginationComboBox.SelectedIndex)
     {
@@ -206,7 +207,7 @@ public partial class MainWindow : Window
     else
     {
       this.pageAmount = pageAmount;
-      maxPage = clientsAmountAfterFilters / pageAmount;
+      maxPage = clientsAmountAfterFilters / pageAmount; 
       PageNumberMaxTB.Text = maxPage.ToString();
     }
   }
@@ -234,5 +235,4 @@ public partial class MainWindow : Window
     PageNumberTB.Text = (page + 1).ToString();
     LoadClients();
   }
-  
 }
